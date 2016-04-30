@@ -1,0 +1,25 @@
+{
+  "name": "serverless-graphql-app",
+  "version": "1.0.0",
+  "description": "\"Front end for serverless graphql app\"",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nikhilaravi/serverless-graphql-app.git"
+  },
+  "keywords": [
+    "graphql",
+    "react",
+    "graphiql",
+    "lambda"
+  ],
+  "author": "Nikhila Ravi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nikhilaravi/serverless-graphql-app/issues"
+  },
+  "homepage": "https://github.com/nikhilaravi/serverless-graphql-app#readme"
+}
