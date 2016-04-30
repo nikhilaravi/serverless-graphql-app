@@ -17,7 +17,7 @@ gulp.task('deploy', function () {
   return exec('npm run build', function (error, stdout, stderr) {
     if (error === null) {
       var s3 = new AWS.S3({region: 'eu-west-1'});
-      var filesToUpload = fs.readdirSync(__dirname + '/tmp/graphiql');
+      var filesToUpload = fs.readdirSync(__dirname + '/public/graphiql');
 
       console.log('>>>>>>>>> Files:', filesToUpload);
       console.log('>>>>>>>>> Bucket folder', bucketfolder);
@@ -26,7 +26,7 @@ gulp.task('deploy', function () {
         var params = {
           Bucket: bucketName,
           Key: bucketfolder + filename,
-          Body: fs.readFileSync(__dirname + '/tmp/graphiql' + filename),
+          Body: fs.readFileSync(__dirname + '/public/graphiql' + filename),
           ContentType: 'text/html'
         };
         s3.putObject(params, function (err, data) {

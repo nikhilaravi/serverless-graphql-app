@@ -4,8 +4,8 @@ var webpack = require('webpack');
 
 module.exports = {
   entry: {
-    javascript: './public/graphiql/src/index.js',
-    html: './public/graphiql/src/index.html'
+    javascript: './graphiql/src/index.js',
+    html: './graphiql/src/index.html'
   },
   output: {
     filename: 'index.js',

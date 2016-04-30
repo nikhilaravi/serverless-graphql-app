@@ -2,9 +2,9 @@
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
-  entry: ['./public/graphiql/src/index.js'],
+  entry: ['./graphiql/src/index.js'],
   output: {
-    path: __dirname + '/tmp/graphql/',
+    path: __dirname + '/public/graphql/',
     filename: 'bundle-[hash:6].js'
   },
   module: {
@@ -25,7 +25,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       filename: 'index.html',
       inject: 'body',
-      template: './public/graphiql/src/index.template.html'
+      template: './graphiql/src/index.template.html'
     })
   ],
   colors: true,
