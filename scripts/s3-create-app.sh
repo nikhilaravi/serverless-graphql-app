@@ -1,10 +1,13 @@
+bucket="gql-v1"
+region="eu-west-1"
+
 aws s3api create-bucket \
-  --bucket "gql-v1" \
-  --region "eu-west-1" \
+  --bucket "$bucket" \
+  --region "$region" \
   --acl "public-read" \
 
 aws s3api put-bucket-policy \
-  --bucket "gql-v1" \
+  --bucket "$bucket" \
   --policy '{
     "Version":"2012-10-17",
     "Statement":[{
@@ -18,5 +21,5 @@ aws s3api put-bucket-policy \
     ]
   }'
 
-aws s3 website s3://gql-v1/ \
+aws s3 website "s3://$bucket/" \
   --index-document index.html

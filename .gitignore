@@ -12,3 +12,5 @@
 hs_err_pid*
 node_modules/
 .DS_Store
+public/
+nm-debug.log

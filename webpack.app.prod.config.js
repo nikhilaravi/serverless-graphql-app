@@ -1,22 +1,28 @@
 'use strict';
+
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+
 module.exports = {
-  entry: ['./graphiql/src/index.js'],
+  entry: [
+    './app/src/index.js'
+  ],
   output: {
-    path: __dirname + '/public/graphql/',
+    path: __dirname + '/public/app/',
     filename: 'bundle-[hash:6].js'
+  },
+  resolve: {
+    extensions: ['', '.js', '.jsx']
   },
   module: {
     loaders: [
       {
-        test: /\.jsx?$/,
-        exclude: /node_modules/,
-        loader: 'babel'
+        test: /\.js$/, exclude: /node_modules/,
+        loader: 'babel-loader'
       },
       {
         test: /\.css$/,
-        loader: 'style-loader!css-loader'
+        loader: 'style!css'
       }
     ]
   },
@@ -25,7 +31,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       filename: 'index.html',
       inject: 'body',
-      template: './graphiql/src/index.template.html'
+      template: './app/src/index.template.html'
     })
   ],
   colors: true,

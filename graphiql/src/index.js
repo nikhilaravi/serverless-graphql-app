@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import GraphiQL from 'graphiql';
 import fetch from 'isomorphic-fetch';
 
-const apiURL = 'https://5nh3r1subi.execute-api.eu-west-1.amazonaws.com/prod';
+const apiURL = 'https://xlpwizci37.execute-api.eu-west-1.amazonaws.com/prod';
 
 require('../../node_modules/graphiql/graphiql.css');
 

@@ -4,8 +4,8 @@ var webpack = require('webpack');
 
 module.exports = {
   entry: {
-    javascript: './graphiql/src/index.js',
-    html: './graphiql/src/index.html'
+    javascript: `./app/src/index.js`,
+    html: `./app/src/index.html`
   },
   output: {
     filename: 'index.js',
@@ -30,7 +30,6 @@ module.exports = {
   },
   devServer: {hot: true},
   plugins: [new webpack.HotModuleReplacementPlugin()],
-  inline: true,
   progress: true,
   colors: true
 };

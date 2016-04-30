@@ -4,9 +4,16 @@
   "description": "\"Front end for serverless graphql app\"",
   "main": "index.js",
   "scripts": {
-    "deploy-graphiql": "gulp",
-    "graphiql:serve": "webpack-dev-server --hot --inline --config ./config/webpack.graphiql.config.js",
-    "graphiql:build": "npm run clean && ./node_modules/.bin/webpack --config ./config/webpack.graphiql.production.config.js"
+    "clean": "rm -rf public && mkdir -p public/",
+    "graphiql:serve": "webpack-dev-server --config webpack.graphiql.config.js",
+    "graphiql:build": "./node_modules/.bin/webpack --config webpack.graphiql.prod.config.js --display-error-details",
+    "graphiql:upload": "bash scripts/s3-update-graphiql.sh",
+    "app:serve": "webpack-dev-server --config webpack.app.config.js",
+    "app:build": "./node_modules/.bin/webpack --config webpack.app.prod.config.js --display-error-details",
+    "app:upload": "bash scripts/s3-update-app.sh",
+    "deploy:graphiql": "npm run clean && npm run graphiql:build && npm run graphiql:upload",
+    "deploy:app": "npm run clean && npm run app:build && npm run app:upload",
+    "deploy:ui": "npm run deploy:graphiql && npm run deploy:app"
   },
   "repository": {
     "type": "git",
@@ -34,5 +41,10 @@
     "webpack": "^1.13.0",
     "webpack-dev-server": "^1.14.1"
   },
-  "homepage": "https://github.com/nikhilaravi/serverless-graphql-app#readme"
+  "homepage": "https://github.com/nikhilaravi/serverless-graphql-app#readme",
+  "devDependencies": {
+    "aws-sdk": "^2.3.7",
+    "gulp": "^3.9.1",
+    "html-webpack-plugin": "^2.16.0"
+  }
 }
