@@ -1,12 +1,5 @@
-import React, { Component } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
+import App from './components/app.js';
 
-class Home extends Component {
-  render () {
-    return (
-      <h1>HELLO SERVERLESS WORLD WELCOME!</h1>
-    );
-  }
-}
-
-ReactDOM.render(<Home />, document.body);
+ReactDOM.render(<App />, document.body);

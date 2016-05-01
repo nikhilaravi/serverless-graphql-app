@@ -1,0 +1,119 @@
+
+.cross {
+  color: #ffffff;
+  font-family: sans-serif;
+  font-weight: lighter;
+  display: inline;
+  padding-left: 1.5em;
+  padding-right: 0.2em;
+}
+
+.inputBar {
+  font-family: SourceSansLight;
+  height: 3em;
+  width: 16em;
+  bottom: 0;
+  margin-top: 1.5em;
+  border: none;
+  outline-width: 0;
+  outline: none !important;
+  padding-left: 0.5em;
+  float: left;
+  margin-right: 0.3em;
+  margin-bottom: 0.1em;
+}
+
+.input-results {
+  z-index: 9999;
+  position: absolute;
+  margin: 0;
+  width: 15.5em;
+}
+
+.searchButton {
+  background-color: #F39100;
+  display: inline-block;
+  border-radius: 5%;
+  color: #ffffff;
+  font-size: 1.25em;
+  padding-top: 0.3em;
+  padding-left: 0.75em;
+  padding-right: 0.75em;
+  padding-bottom: 0.25em;
+  float: left;
+  position: absolute;
+  top: 1.45em;
+}
+
+.searchButton:hover {
+  background-color: #F37800;
+}
+
+.searchButton:active {
+  background-color: #F39100;
+}
+
+.inputContainer {
+  top: 3em;
+  display: inline-block;
+  margin-right: 2em;
+}
+
+.input:focus {
+  outline: none !important;
+  outline-width: 0;
+}
+
+/* removes placeholder text when input is clicked */
+.inputBar:focus::-webkit-input-placeholder {
+  color:transparent;
+  outline:none !important;
+  outline-width: 0;
+}
+.inputBar:focus:-moz-placeholder {
+  color:transparent;
+  outline:none !important;
+  outline-width: 0;
+} /* Firefox 18- */
+.inputBar:focus::-moz-placeholder {
+  color:transparent;
+  outline:none !important;
+  outline-width: 0;
+  } /* Firefox 19+ */
+.inputBar:focus:-ms-input-placeholder {
+  color:transparent;
+  outline:none !important;
+  outline-width: 0;
+} /* oldIE ;) */
+
+.tagContainer {
+  text-align: center;
+  padding-top: 0.3em;
+  padding-bottom: 0.5em;
+  display: inline-block;
+  width: 80%;
+  position: relative;
+  margin-bottom: 0.5em;
+}
+
+.tagWrapper {
+  text-align: center;
+  margin: 0 auto;
+}
+
+.list-group-item a:hover {
+  text-decoration: none;
+}
+
+.list-group-item a {
+  color: black;
+}
+
+.list-group-item:hover {
+  background-color: #F39100;
+}
+
+.list-group-item.active, .list-group-item.active:hover {
+  background-color: #F39100;
+  border-color: #F39100;
+}
