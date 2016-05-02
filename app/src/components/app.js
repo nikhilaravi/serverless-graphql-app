@@ -15,6 +15,7 @@ export default class App extends Component {
     };
   }
   componentDidMount () {
+    console.log('retrieving tracks');
     return graphqlService.query(PLAYLIST_QUERY, {})
       .then(json => {
         if (json.data && json.data.playlist) {
@@ -29,12 +30,9 @@ export default class App extends Component {
       });
   }
   handleSearchInputChange (e) {
-    if (e.key === 'Enter') {
-      this.addToPlaylist();
-    }
-    const input = e.target.value;
-    console.log('input', input)
-    return graphqlService.query(SONG_SUGGESTIONS_QUERY, {'query': input, 'limit': 10})
+    if (e.key === 'Enter') { this.addToPlaylist(); }
+    return graphqlService
+      .query(SONG_SUGGESTIONS_QUERY, {'query': e.target.value, 'limit': 10})
       .then(json => {
         console.log('json', json);
         if (json.data && json.data.suggestions) {
@@ -49,8 +47,10 @@ export default class App extends Component {
       });
   }
   addToPlaylist (song) {
-    this.setState({playlist: [...this.state.playlist, this.state.selectedOption]});
-    return graphqlService.query(ADD_TRACK_MUTATION, this.state.selectedOption)
+    const { playlist, selectedOption } = this.state
+    this.setState({playlist: [...playlist, selectedOption]});
+    return graphqlService
+      .query(ADD_TRACK_MUTATION, selectedOption)
       .then(json => {
         if (json.data && json.data.addTrack) {
           console.log('track added', json.data.addTrack.id);
@@ -58,21 +58,26 @@ export default class App extends Component {
       });
   }
   render () {
+    const { autocompleteOptions, selectedOption } = this.state
     return (
       <div className='container'>
         <SearchBar
-          autocompleteOptions={this.state.autocompleteOptions}
-          selectedOption={this.state.selectedOption}
-          setSelectedOption={(selectedOption) => this.setState({selectedOption})}
-          handleSearchInputChange={this.handleSearchInputChange.bind(this)}
-          addToPlaylist={this.addToPlaylist.bind(this)}
+          autocompleteOptions     = {autocompleteOptions}
+          selectedOption          = {selectedOption}
+          setSelectedOption       = {(selectedOption) => this.setState({selectedOption})}
+          handleSearchInputChange = {this.handleSearchInputChange.bind(this)}
+          addToPlaylist           = {this.addToPlaylist.bind(this)}
         />
         <div className='container'>
           <ListGroup>
             {
               this.state.playlist.map((song, i) => {
                 const num = i + 1;
-                return <ListGroupItem key={i}>{num + '. ' + song.name + ' - ' + song.artist}</ListGroupItem>;
+                return (
+                  <ListGroupItem key={i}>
+                    {num + '. ' + song.name + ' - ' + song.artist}
+                  </ListGroupItem>
+                )
               })
             }
           </ListGroup>
