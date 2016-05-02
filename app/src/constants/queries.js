@@ -8,3 +8,14 @@ export const SONG_SUGGESTIONS_QUERY = `
     }
   }
 `;
+
+export const PLAYLIST_QUERY = `
+  query {
+  	playlist {
+      name,
+      artist,
+      imageUrl,
+      url
+    }
+  }
+`;
