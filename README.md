@@ -8,6 +8,21 @@ Follow the steps to create the api and lambda first!! You'll need an api invoke 
 
 **Demo GraphiQL:** [http://gql-v1.s3-website-us-east-1.amazonaws.com/graphiql/](http://gql-v1.s3-website-us-east-1.amazonaws.com/graphiql/)
 
+To try out GraphiQL paste this query into the query editor
+```
+query($query: String){
+  suggestions(query:$query) {
+    name
+  }
+}
+```
+and pas this into the query variables editor
+```
+{
+  "query": "name of a song"
+}
+```
+
 ## Technologies
 - AWS s3 - host a static website for the UI
 - GraphiQL - IDE to inspect and query a GraphQl schema
