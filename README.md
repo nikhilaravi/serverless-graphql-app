@@ -4,8 +4,9 @@ Front end and GraphiQL IDE for serverless graphql jukebox app.
 The code for the creation of a lambda function and api gateway endpoint can be found here [https://github.com/nikhilaravi/serverless-graphql](https://github.com/nikhilaravi/serverless-graphql)
 Follow the steps to create the api and lambda first!! You'll need an api invoke url in order to deploy the UI.
 
-Demo app: [http://gql-v1.s3-website-us-east-1.amazonaws.com/app/](http://gql-v1.s3-website-us-east-1.amazonaws.com/app/)
-Demo GraphiQL: [http://gql-v1.s3-website-us-east-1.amazonaws.com/graphiql/](http://gql-v1.s3-website-us-east-1.amazonaws.com/graphiql/)
+**Demo app:** [http://gql-v1.s3-website-us-east-1.amazonaws.com/app/](http://gql-v1.s3-website-us-east-1.amazonaws.com/app/)
+
+**Demo GraphiQL:** [http://gql-v1.s3-website-us-east-1.amazonaws.com/graphiql/](http://gql-v1.s3-website-us-east-1.amazonaws.com/graphiql/)
 
 ## Technologies
 - AWS s3 - host a static website for the UI
