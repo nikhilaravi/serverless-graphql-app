@@ -46,8 +46,9 @@ export default class App extends Component {
         }
       });
   }
-  addToPlaylist (song) {
+  addToPlaylist () {
     const { playlist, selectedOption } = this.state
+    console.log('adding track');
     this.setState({playlist: [...playlist, selectedOption]});
     return graphqlService
       .query(ADD_TRACK_MUTATION, selectedOption)
@@ -55,7 +56,10 @@ export default class App extends Component {
         if (json.data && json.data.addTrack) {
           console.log('track added', json.data.addTrack.id);
         }
-      });
+      })
+      .catch(err => {
+        console.log('err adding track', err);
+      })
   }
   render () {
     const { autocompleteOptions, selectedOption } = this.state

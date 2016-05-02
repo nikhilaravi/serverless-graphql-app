@@ -2,14 +2,13 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import GraphiQL from 'graphiql';
 import fetch from 'isomorphic-fetch';
-
-const apiURL = 'https://efzhmu8d9h.execute-api.eu-west-1.amazonaws.com/prod';
-
+import config from '../../config.js';
+const apiURL = config.apiURL;
 require('../../node_modules/graphiql/graphiql.css');
 
 class GraphiQLIDE extends Component {
   graphQLFetcher (graphQLParams) {
-    return fetch(`${apiURL}/graphql`, {
+    return fetch(apiURL, {
       method: 'post',
       headers: {
         'Accept': 'application/json',
