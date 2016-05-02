@@ -1,3 +1,5 @@
+#!/bin/bash
+
 bucket="gql-v1"
 region="eu-west-1"
 
