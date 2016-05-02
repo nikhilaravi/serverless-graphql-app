@@ -1,8 +1,8 @@
-# serverless-graphql-app
+# Serverless GraphQL Jukebox
 Front end and GraphiQL IDE for serverless graphql jukebox app.
 
-The code for the creation of a lambda function and api gateway endpoint can be found here [https://github.com/nikhilaravi/serverless-graphql](https://github.com/nikhilaravi/serverless-graphql)
-Follow the steps to create the api and lambda first!! You'll need an api invoke url in order to deploy the UI.
+***The code for the creation of a lambda function and api gateway endpoint can be found here [https://github.com/nikhilaravi/serverless-graphql](https://github.com/nikhilaravi/serverless-graphql)
+Follow the steps to create the api and lambda first!! You'll need an api invoke url in order to deploy the UI.***
 
 **Demo app:** [http://gql-v1.s3-website-us-east-1.amazonaws.com/app/](http://gql-v1.s3-website-us-east-1.amazonaws.com/app/)
 
@@ -12,16 +12,19 @@ To try out GraphiQL paste this query into the query editor
 ```
 query($query: String){
   suggestions(query:$query) {
-    name
+    name,
+    artist,
+    url
   }
 }
 ```
-and pas this into the query variables editor
+and paste this into the query variables editor on the bottom left of the screen.
 ```
 {
   "query": "name of a song"
 }
 ```
+Then hit the 'play' button!
 
 ## Technologies
 - AWS s3 - host a static website for the UI
