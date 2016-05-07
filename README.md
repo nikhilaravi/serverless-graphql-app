@@ -35,9 +35,9 @@ Then hit the 'play' button!
 
 ## Before you start export your environment variables
 ```sh
-export AWS ACCESS KEY ID='yourkey'
-export AWS ACCESS KEY SECRET='yoursecretkey'
-export AWS REGION='region'
+export AWS_ACCESS_KEY_ID='yourkey'
+export AWS_ACCESS_KEY_SECRET='yoursecretkey'
+export AWS_REGION='region'
 ```
 ## 1. Create an S3 bucket and enable static website hosting
 

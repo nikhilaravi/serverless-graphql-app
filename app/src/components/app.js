@@ -4,7 +4,6 @@ import graphqlService from '../services/graphql.js';
 import { SONG_SUGGESTIONS_QUERY, PLAYLIST_QUERY } from '../constants/queries.js';
 import { ADD_TRACK_MUTATION } from '../constants/mutations.js';
 import { ListGroup, ListGroupItem } from 'react-bootstrap';
-
 export default class App extends Component {
   constructor () {
     super();

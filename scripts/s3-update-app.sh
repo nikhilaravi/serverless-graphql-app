@@ -1,4 +1,4 @@
-bucket='gql-v1'
+bucket="demo-v1"
 
 dir="public/app"
 for f in "$dir"/*; do

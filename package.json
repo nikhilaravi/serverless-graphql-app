@@ -4,7 +4,7 @@
   "description": "\"Front end for serverless graphql app\"",
   "main": "index.js",
   "scripts": {
-    "create-s3": "./scripts/s3-create-app.sh",
+    "create-s3": ". ./scripts/s3-create-app.sh",
     "clean": "rm -rf public && mkdir -p public/",
     "graphiql:serve": "webpack-dev-server --config webpack.graphiql.config.js",
     "graphiql:build": "./node_modules/.bin/webpack --config webpack.graphiql.prod.config.js --display-error-details",

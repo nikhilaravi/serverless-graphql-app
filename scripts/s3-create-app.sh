@@ -1,6 +1,6 @@
 #!/bin/bash
 
-bucket="gql-v1"
+bucket="demo-v1"
 region="eu-west-1"
 
 aws s3api create-bucket \
@@ -17,7 +17,7 @@ aws s3api put-bucket-policy \
           "Effect":"Allow",
   	  "Principal": "*",
         "Action":["s3:GetObject"],
-        "Resource":["arn:aws:s3:::gql-v1/*"
+        "Resource":["arn:aws:s3:::'"$bucket"'/*"
         ]
       }
     ]
