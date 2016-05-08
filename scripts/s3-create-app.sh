@@ -25,3 +25,5 @@ aws s3api put-bucket-policy \
 
 aws s3 website "s3://$bucket/" \
   --index-document index.html
+
+echo "http://$bucket.s3-website-us-east-1.amazonaws.com/app/"

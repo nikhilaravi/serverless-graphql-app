@@ -5,6 +5,7 @@ import { SONG_SUGGESTIONS_QUERY, PLAYLIST_QUERY } from '../constants/queries.js'
 import { ADD_TRACK_MUTATION } from '../constants/mutations.js';
 import { ListGroup, ListGroupItem, Col, PageHeader } from 'react-bootstrap';
 import './styles.css';
+var playIcon = require('../assets/play.png');
 export default class App extends Component {
   constructor () {
     super();
@@ -86,7 +87,7 @@ export default class App extends Component {
                       <h4 className='songArtist'>{song.artist}</h4>
                     </Col>
                     <Col xs={1} md={1} >
-                      <a href={song.url}><img className='playIcon' src='./app/src/assets/play.png'/></a>
+                      <a href={song.url}><img className='playIcon' src={playIcon}/></a>
                     </Col>
                   </div>
                 )
