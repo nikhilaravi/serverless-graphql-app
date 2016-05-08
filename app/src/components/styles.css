@@ -1,4 +1,48 @@
 .playlist {
   text-align: center;
   margin: 0 auto;
+  margin-top: 3em;
+  margin-bottom: 5em;
+  width: 75%;
+}
+
+div.songInfo {
+  display: inline-block;
+  width: 30%;
+}
+
+.songImage {
+  display: inline-block;
+  margin: 0.5em;
+}
+
+.page-header h1 {
+  text-align: center;
+}
+
+.playlistItem {
+  border: 2px solid black;
+  border-radius: 2em;
+  height: 6em;
+  margin: 1em;
+  background-color: white;
+  opacity: 0.6
+}
+
+.songArtist {
+  font-style: italic;
+}
+
+.playIcon {
+  height: 3em;
+  margin-top: 1.5em;
+}
+
+body {
+  background-image: url('https://static.pexels.com/photos/2143/lights-party-dancing-music.jpg');
+  background-size: cover;
+}
+
+h1 {
+  color: white
 }

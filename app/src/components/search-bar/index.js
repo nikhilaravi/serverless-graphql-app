@@ -4,16 +4,26 @@ var Typeahead = require('react-typeahead').Typeahead;
 require('./styles.css');
 
 export default class SearchBar extends Component {
+  constructor () {
+    super();
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick () {
+    this.refs.autocomplete.setState({ entryValue: '' }); // temp fix to clear the search input
+    this.props.addToPlaylist();
+  }
   render () {
     return (
-      <div className='tagWrapper'>
-        <div className='tagContainer'>
-        <div className='inputContainer'>
+      <div className='container searchBarContainer'>
           <Typeahead
-            ref="autocomplete"
+            ref='autocomplete'
             options={this.props.autocompleteOptions}
             className='inputBar'
-            onKeyUp={this.props.handleSearchInputChange}
+            onKeyUp={(e) => {
+              if (e.key === 'Enter') { this.handleClick(); }
+              this.props.handleSearchInputChange(e);
+            }}
             filterOption='name'
             displayOption='title'
             onOptionSelected={this.props.setSelectedOption}
@@ -27,16 +37,18 @@ export default class SearchBar extends Component {
           />
           <div
             className='searchButton'
-            onClick={() => {
-              this.refs.autocomplete.setState({ entryValue: '' }); // temp fix to clear the search input
-              this.props.addToPlaylist();
-            }}
+            onClick={this.handleClick}
           >
            Add to playlist
           </div>
-        </div>
       </div>
-    </div>
     );
   }
 }
+
+SearchBar.propTypes = {
+  addToPlaylist: PropTypes.func,
+  autocompleteOptions: PropTypes.array,
+  handleSearchInputChange: PropTypes.func,
+  setSelectedOption: PropTypes.func
+};

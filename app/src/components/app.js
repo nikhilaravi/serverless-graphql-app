@@ -3,7 +3,8 @@ import SearchBar from './search-bar/index.js';
 import graphqlService from '../services/graphql.js';
 import { SONG_SUGGESTIONS_QUERY, PLAYLIST_QUERY } from '../constants/queries.js';
 import { ADD_TRACK_MUTATION } from '../constants/mutations.js';
-import { ListGroup, ListGroupItem } from 'react-bootstrap';
+import { ListGroup, ListGroupItem, Col, PageHeader } from 'react-bootstrap';
+import './styles.css';
 export default class App extends Component {
   constructor () {
     super();
@@ -29,7 +30,6 @@ export default class App extends Component {
       });
   }
   handleSearchInputChange (e) {
-    if (e.key === 'Enter') { this.addToPlaylist(); }
     return graphqlService
       .query(SONG_SUGGESTIONS_QUERY, {'query': e.target.value, 'limit': 10})
       .then(json => {
@@ -64,6 +64,7 @@ export default class App extends Component {
     const { autocompleteOptions, selectedOption } = this.state
     return (
       <div className='container'>
+        <PageHeader>Serverless GraphQL Playlist</PageHeader>
         <SearchBar
           autocompleteOptions     = {autocompleteOptions}
           selectedOption          = {selectedOption}
@@ -71,15 +72,23 @@ export default class App extends Component {
           handleSearchInputChange = {this.handleSearchInputChange.bind(this)}
           addToPlaylist           = {this.addToPlaylist.bind(this)}
         />
-        <div className='container'>
+        <div className='container playlist'>
           <ListGroup>
             {
               this.state.playlist.map((song, i) => {
-                const num = i + 1;
                 return (
-                  <ListGroupItem key={i}>
-                    {num + '. ' + song.name + ' - ' + song.artist}
-                  </ListGroupItem>
+                  <div key={i} className='playlistItem'>
+                    <Col xs={1} md={2} mdOffset={1} >
+                      <img className='songImage' src={song.imageUrl} responsive/>
+                    </Col>
+                    <Col xs={8} md={6} >
+                      <h3 className='songName'>{song.name}</h3>
+                      <h4 className='songArtist'>{song.artist}</h4>
+                    </Col>
+                    <Col xs={1} md={1} >
+                      <a href={song.url}><img className='playIcon' src='./app/src/assets/play.png'/></a>
+                    </Col>
+                  </div>
                 )
               })
             }

@@ -1,62 +1,48 @@
-
-.cross {
-  color: #ffffff;
-  font-family: sans-serif;
-  font-weight: lighter;
-  display: inline;
-  padding-left: 1.5em;
-  padding-right: 0.2em;
+.searchBarContainer {
+  text-align: center;
+  margin: 0 auto;
 }
 
 .inputBar {
-  font-family: SourceSansLight;
   height: 3em;
-  width: 16em;
+  width: 25em;
   bottom: 0;
   margin-top: 1.5em;
   border: none;
   outline-width: 0;
   outline: none !important;
   padding-left: 0.5em;
-  float: left;
-  margin-right: 0.3em;
+  margin-right: 2em;
   margin-bottom: 0.1em;
+  display: inline-block;
 }
 
 .input-results {
   z-index: 9999;
   position: absolute;
   margin: 0;
-  width: 15.5em;
+  width: 24.5em;
 }
 
 .searchButton {
-  background-color: #F39100;
+  background-color: #4acaf0;
   display: inline-block;
   border-radius: 5%;
   color: #ffffff;
   font-size: 1.25em;
-  padding-top: 0.3em;
+  padding-top: 0.8em;
   padding-left: 0.75em;
   padding-right: 0.75em;
-  padding-bottom: 0.25em;
-  float: left;
-  position: absolute;
-  top: 1.45em;
+  padding-bottom: 1em;
+  margin-top: 1.2em;
 }
 
 .searchButton:hover {
-  background-color: #F37800;
+  background-color: #00bbf2;
 }
 
 .searchButton:active {
-  background-color: #F39100;
-}
-
-.inputContainer {
-  top: 3em;
-  display: inline-block;
-  margin-right: 2em;
+  background-color: #4acaf0;
 }
 
 .input:focus {
@@ -86,21 +72,6 @@
   outline-width: 0;
 } /* oldIE ;) */
 
-.tagContainer {
-  text-align: center;
-  padding-top: 0.3em;
-  padding-bottom: 0.5em;
-  display: inline-block;
-  width: 80%;
-  position: relative;
-  margin-bottom: 0.5em;
-}
-
-.tagWrapper {
-  text-align: center;
-  margin: 0 auto;
-}
-
 .list-group-item a:hover {
   text-decoration: none;
 }
@@ -110,10 +81,14 @@
 }
 
 .list-group-item:hover {
-  background-color: #F39100;
+  background-color: #4acaf0;
 }
 
 .list-group-item.active, .list-group-item.active:hover {
-  background-color: #F39100;
-  border-color: #F39100;
+  background-color: #4acaf0;
+  border-color: #4acaf0;
+}
+
+.form-control {
+  height: 4em;
 }
