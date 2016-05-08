@@ -1,4 +1,4 @@
-bucket="demo-v1"
+bucket="serverless-ui"
 dir="public/graphiql"
 for f in "$dir"/*; do
   IFS='/' read -r -a names <<< "$f"

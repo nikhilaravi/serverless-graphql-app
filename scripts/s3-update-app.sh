@@ -1,4 +1,4 @@
-bucket="demo-v1"
+bucket="serverless-ui"
 
 dir="public/app"
 for f in "$dir"/*; do

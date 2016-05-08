@@ -4,7 +4,6 @@
 }
 
 .inputBar {
-  height: 3em;
   width: 25em;
   bottom: 0;
   margin-top: 1.5em;
@@ -17,6 +16,10 @@
   display: inline-block;
 }
 
+.inputBar input {
+  font-size: 2em;
+}
+
 .input-results {
   z-index: 9999;
   position: absolute;
@@ -24,8 +27,20 @@
   width: 24.5em;
 }
 
+@media (max-width:375px) {
+  .input-results {
+    width: 12.5em;
+  }
+  .inputBar input {
+    font-size: 1.5em;
+  }
+  .inputBar {
+    width: 13em;
+  }
+}
+
 .searchButton {
-  background-color: #4acaf0;
+  background-color: #0075ff;
   display: inline-block;
   border-radius: 5%;
   color: #ffffff;
@@ -39,10 +54,6 @@
 
 .searchButton:hover {
   background-color: #00bbf2;
-}
-
-.searchButton:active {
-  background-color: #4acaf0;
 }
 
 .input:focus {
@@ -78,6 +89,7 @@
 
 .list-group-item a {
   color: black;
+  font-size: 1.3em;
 }
 
 .list-group-item:hover {
@@ -90,5 +102,5 @@
 }
 
 .form-control {
-  height: 4em;
+  height: 2em;
 }

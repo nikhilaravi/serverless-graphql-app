@@ -39,7 +39,7 @@ export default class SearchBar extends Component {
             className='searchButton'
             onClick={this.handleClick}
           >
-           Add to playlist
+           Add Track
           </div>
       </div>
     );

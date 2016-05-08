@@ -1,24 +1,26 @@
 import React, { Component } from 'react';
-import SearchBar from './search-bar/index.js';
-import graphqlService from '../services/graphql.js';
-import { SONG_SUGGESTIONS_QUERY, PLAYLIST_QUERY } from '../constants/queries.js';
-import { ADD_TRACK_MUTATION } from '../constants/mutations.js';
+import SearchBar from '../search-bar/';
+import Spinner from '../spinner/';
+import graphqlService from '../../services/graphql.js';
+import { SONG_SUGGESTIONS_QUERY, PLAYLIST_QUERY } from '../../constants/queries.js';
+import { ADD_TRACK_MUTATION } from '../../constants/mutations.js';
 import { ListGroup, ListGroupItem, Col, PageHeader } from 'react-bootstrap';
 import './styles.css';
-var playIcon = require('../assets/play.png');
+var playIcon = require('../../assets/play.png');
 export default class App extends Component {
   constructor () {
     super();
     this.state = {
       autocompleteOptions: [],
       selectedOption: {},
-      playlist: []
+      playlist: [],
+      loading: true
     };
   }
   componentDidMount () {
-    console.log('retrieving tracks');
     return graphqlService.query(PLAYLIST_QUERY, {})
       .then(json => {
+        console.log('playlist query response', json);
         if (json.data && json.data.playlist) {
           const playlist = json.data.playlist.map(song => {
             return {
@@ -26,8 +28,11 @@ export default class App extends Component {
               title: song.name + ' - ' + song.artist
             }
           });
-          this.setState({playlist});
+          this.setState({playlist, loading: false});
         }
+      })
+      .catch(err => {
+        console.log('error fetching tracks', err);
       });
   }
   handleSearchInputChange (e) {
@@ -65,7 +70,7 @@ export default class App extends Component {
     const { autocompleteOptions, selectedOption } = this.state
     return (
       <div className='container'>
-        <PageHeader>Serverless GraphQL Playlist</PageHeader>
+        <PageHeader>Serverless GraphQL Jukebox</PageHeader>
         <SearchBar
           autocompleteOptions     = {autocompleteOptions}
           selectedOption          = {selectedOption}
@@ -73,28 +78,30 @@ export default class App extends Component {
           handleSearchInputChange = {this.handleSearchInputChange.bind(this)}
           addToPlaylist           = {this.addToPlaylist.bind(this)}
         />
-        <div className='container playlist'>
-          <ListGroup>
-            {
-              this.state.playlist.map((song, i) => {
-                return (
-                  <div key={i} className='playlistItem'>
-                    <Col xs={1} md={2} mdOffset={1} >
-                      <img className='songImage' src={song.imageUrl} responsive/>
-                    </Col>
-                    <Col xs={8} md={6} >
-                      <h3 className='songName'>{song.name}</h3>
-                      <h4 className='songArtist'>{song.artist}</h4>
-                    </Col>
-                    <Col xs={1} md={1} >
-                      <a href={song.url}><img className='playIcon' src={playIcon}/></a>
-                    </Col>
-                  </div>
-                )
-              })
-            }
-          </ListGroup>
-        </div>
+        { this.state.loading ? <Spinner /> :
+          <div className='container playlist'>
+            <ListGroup>
+              {
+                this.state.playlist.map((song, i) => {
+                  return (
+                    <div key={i} className='playlistItem'>
+                      <Col xs={3} md={3}>
+                        <img className='songImage' src={song.imageUrl} responsive/>
+                      </Col>
+                      <Col xs={6} md={6}>
+                        <p className='songName'>{song.name}</p>
+                        <p className='songArtist'>{song.artist}</p>
+                      </Col>
+                      <Col xs={2} md={3}>
+                        <a href={song.url}><img className='playIcon' src={playIcon}/></a>
+                      </Col>
+                    </div>
+                  )
+                })
+              }
+            </ListGroup>
+          </div>
+        }
       </div>
     );
   }

@@ -1,0 +1,99 @@
+.playlist {
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 3em;
+  margin-bottom: 5em;
+  width: 75%;
+}
+
+div.songInfo {
+  display: inline-block;
+  width: 30%;
+}
+
+.songImage {
+  display: inline-block;
+  margin: 0.5em;
+}
+
+.page-header h1 {
+  text-align: center;
+}
+
+.playlistItem {
+  border: 2px solid black;
+  border-radius: 2em;
+  height: 6em;
+  margin: 1em;
+  background-color: rgba(0, 117, 255, 0.7);
+}
+
+.songArtist {
+  font-style: italic;
+  font-size: 1.5em;
+}
+
+.songName {
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.playIcon {
+  height: 3em;
+  margin-top: 1.5em;
+}
+
+body {
+  background-image: url('https://static.pexels.com/photos/2143/lights-party-dancing-music.jpg');
+  background-size: cover;
+}
+
+h1 {
+  color: white
+}
+
+@media (max-width:375px) {
+  .playlist {
+    width: 100%;
+  }
+}
+
+@media (max-width:500px) {
+  .playlist {
+    width: 100%;
+  }
+  .playIcon {
+    height: 2em;
+  }
+  .songImage {
+    height: 3em;
+    margin-top: 1.5em;
+  }
+  .songName {
+    font-size: 1.5em;
+    margin-top: 0.3em;
+  }
+  .songArtist {
+    font-size: 1.0em;
+  }
+}
+
+@media (max-width:320px) {
+  .playlist {
+    width: 100%;
+  }
+  .playIcon {
+    height: 2em;
+  }
+  .songImage {
+    height: 3em;
+    margin-top: 1.5em;
+  }
+  .songName {
+    font-size: 1.3em;
+    margin-top: 0.3em;
+  }
+  .songArtist {
+    font-size: 0.9em;
+  }
+}

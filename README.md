@@ -10,7 +10,14 @@ Follow the steps to create the api and lambda first!! You'll need an api invoke 
 
 To try out GraphiQL paste this query into the query editor
 ```
-.
+query($query: String) {
+	suggestions {
+    name,
+    artist,
+    url,
+    imageUrl
+  }
+}
 ```
 and paste this into the query variables editor on the bottom left of the screen.
 ```
