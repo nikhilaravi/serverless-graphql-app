@@ -14,7 +14,11 @@
     "app:upload": "bash scripts/s3-update-app.sh",
     "deploy:graphiql": "npm run clean && npm run graphiql:build && npm run graphiql:upload",
     "deploy:app": "npm run clean && npm run app:build && npm run app:upload",
-    "deploy:ui": "npm run deploy:graphiql && npm run deploy:app"
+    "deploy:ui": "npm run deploy:graphiql && npm run deploy:app",
+    "generate-graphql-schema": "babel-node ./test/constants/helpers/update-schema.js > ./test/constants/helpers/schema.json",
+    "test": "npm run generate-graphql-schema && mocha ./test/**/*.test.js --compilers js:babel-register",
+    "coverage": "./node_modules/.bin/babel-node ./node_modules/.bin/babel-istanbul cover ./node_modules/.bin/_mocha ./test/**/*.test.js --report lcov -- -R spec",
+
   },
   "repository": {
     "type": "git",

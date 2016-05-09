@@ -58,7 +58,7 @@ h1 {
   }
 }
 
-@media (max-width:500px) {
+/*@media (max-width:500px) {
   .playlist {
     width: 100%;
   }
@@ -76,9 +76,9 @@ h1 {
   .songArtist {
     font-size: 1.0em;
   }
-}
+}*/
 
-@media (max-width:320px) {
+@media (max-width:729px) {
   .playlist {
     width: 100%;
   }
