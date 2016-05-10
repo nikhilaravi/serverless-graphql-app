@@ -85,10 +85,10 @@ export default class App extends Component {
                 this.state.playlist.map((song, i) => {
                   return (
                     <div key={i} className='playlistItem'>
-                      <Col xs={3} md={3}>
+                      <Col xs={2} md={2}>
                         <img className='songImage' src={song.imageUrl} responsive/>
                       </Col>
-                      <Col xs={6} md={6}>
+                      <Col xs={7} md={7}>
                         <p className='songName'>{song.name}</p>
                         <p className='songArtist'>{song.artist}</p>
                       </Col>

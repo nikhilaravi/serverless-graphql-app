@@ -1,6 +1,6 @@
 #!/bin/bash
 
-bucket="serverless-ui-monday"
+bucket="serverless-ui-demo"
 region="eu-west-1"
 
 aws s3api create-bucket \
