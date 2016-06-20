@@ -38,11 +38,18 @@
     "url": "https://github.com/nikhilaravi/serverless-graphql-app/issues"
   },
   "dependencies": {
+    "babel": "^6.5.2",
+    "babel-core": "^6.9.0",
+    "babel-loader": "^6.2.4",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-react": "^6.5.0",
     "graphiql": "^0.7.1",
     "graphql": "^0.5.0",
+    "isomorphic-fetch": "^2.2.1",
     "react": "^15.0.2",
     "react-bootstrap": "^0.29.3",
-    "react-dom": "^15.0.2"
+    "react-dom": "^15.0.2",
+    "react-typeahead": "^2.0.0-alpha.2"
   },
   "homepage": "https://github.com/nikhilaravi/serverless-graphql-app#readme",
   "devDependencies": {
